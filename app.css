@@ -1,0 +1,49 @@
+.container {
+    padding: 30px;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.upload-area {
+    border: 2px dashed #ccc;
+    padding: 50px;
+    position: relative;
+    cursor: pointer;
+}
+
+.drag-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.file-field {
+    margin-top: 20px;
+}
+
+.upload-icon {
+    text-align: center;
+    font-size: 50px;
+    transition: all .3s ease-in-out;
+}
+
+.upload-btn {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 20px;
+}
+
+.upload-area-active {
+    border: 2px dashed #0bbd87;
+}
+
+#progress-bar-file-upload {
+    font-size: 15px;
+}
