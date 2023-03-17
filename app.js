@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const getVideos = async () => {
-        const response = await fetch('http://127.0.0.1:5500/api/videos.json');
+        const response = await fetch('https://tayz.vercel.app/api/videos.json');
         const data = await response.json();
         return data;
     }
