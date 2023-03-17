@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const getComments = async (video_id) => {
-        const response = await fetch(`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${video_id}&key=AIzaSyBOkUso3EoRUoOtBIoWonSNHDUtK9fetj4`);
+        const response = await fetch(`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${video_id}&key=`);
         const data = await response.json();
         return data.items;
     }
