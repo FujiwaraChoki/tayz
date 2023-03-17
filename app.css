@@ -4,11 +4,10 @@
 
 .video-container {
     position: relative;
-    padding-bottom: 56.25%;
     padding-top: 30px;
-    height: 0;
-    overflow: hidden;
+    overflow-x: hidden;
     width: 100%;
+    margin-bottom: 10rem;
 }
 
 .upload-area {
