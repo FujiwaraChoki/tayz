@@ -1,3 +1,5 @@
+const apiKey = process.env.YOUTUBE_API_KEY;
+
 document.addEventListener('DOMContentLoaded', () => {
     const getVideos = async () => {
         const response = await fetch('https://tayz.vercel.app/api/videos.json');
@@ -29,6 +31,31 @@ document.addEventListener('DOMContentLoaded', () => {
         return cleanDescription;
     }
 
+    const getComments = async (video_id) => {
+        const response = await fetch(`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${video_id}&key=${apiKey}`);
+        const data = await response.json();
+        return data.items;
+    }
+
+    const renderComment = (comment) => {
+        console.log(comment.snippet.topLevelComment.snippet);
+        const { authorDisplayName, authorProfileImageUrl, textDisplay, authorChannelUrl } = comment.snippet.topLevelComment.snippet;
+        const commentList = document.querySelector('#comments');
+
+        const template = `
+            <div class="media mb-4">
+                <a href="${authorChannelUrl}">
+                    <img class="d-flex mr-3 rounded-circle" src="${authorProfileImageUrl}" alt="${authorDisplayName}">
+                </a>
+                <div class="media-body">
+                    <h5 class="mt-0">${authorDisplayName}</h5>
+                    ${textDisplay}
+                </div>
+            </div>`;
+
+        commentList.innerHTML += template;
+    }
+
     const template = `
         <div class="col-md-12">
             <div class="card mb-4">
@@ -53,6 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
             .replace('{{VIDEO_ID}}', video_id)
             .replace('{{TITLE}}', title)
             .replace('{{DESCRIPTION}}', cleanDescription(description, false));
+
+        const comments = await getComments(video_id);
+        comments.forEach(comment => renderComment(comment));
 
         videoList.innerHTML = html;
     }

@@ -46,3 +46,11 @@
 #progress-bar-file-upload {
     font-size: 15px;
 }
+
+.text-center {
+    color: white;
+}
+
+#comments {
+    margin: 20px;
+}
