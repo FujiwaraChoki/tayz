@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const videoList = document.querySelector('#video-list');
 
         const thumbnail_url = `https://img.youtube.com/vi/${video_id}/0.jpg`;
-        const video_url = `http://localhost:5500/video.html?id=${video_id}`;
+        const video_url = `https://tayz.vercel.app/video.html?id=${video_id}`;
 
         const template = `
             <div class="col-md-4">
