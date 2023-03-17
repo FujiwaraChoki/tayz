@@ -1,5 +1,3 @@
-const apiKey = process.env.YOUTUBE_API_KEY;
-
 document.addEventListener('DOMContentLoaded', () => {
     const getVideos = async () => {
         const response = await fetch('https://tayz.vercel.app/api/videos.json');
@@ -32,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const getComments = async (video_id) => {
-        const response = await fetch(`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${video_id}&key=${apiKey}`);
+        const response = await fetch(`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${video_id}&key=AIzaSyBOkUso3EoRUoOtBIoWonSNHDUtK9fetj4`);
         const data = await response.json();
         return data.items;
     }
