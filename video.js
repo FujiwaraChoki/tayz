@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const videoList = document.querySelector('#sideVideos');
 
         const thumbnail_url = `https://img.youtube.com/vi/${video_id}/0.jpg`;
-        const youtube_url = `http://localhost:5500/video.html?id=${video_id}`;
+        const youtube_url = `https://tayz.vercel.app/video.html?id=${video_id}`;
 
 
         const template = `
