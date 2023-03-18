@@ -2,7 +2,7 @@
     padding: 30px;
 }
 
-.video-container {
+.videoContainer {
     position: relative;
     padding-top: 30px;
     overflow-x: hidden;
@@ -43,14 +43,13 @@
     border: 2px dashed #0bbd87;
 }
 
-#progress-bar-file-upload {
-    font-size: 15px;
-}
-
 .text-center {
     color: white;
 }
 
-#comments {
-    margin: 20px;
+.loadingContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
