@@ -52,7 +52,7 @@ export default function Home({ videos }) {
 export async function getStaticProps() {
   const AUTH_KEY = process.env.AUTH_KEY;
 
-  const videos = await fetch('http://localhost:3000/api/videos', {
+  const videos = await fetch('https://fornowbackend.vercel.app/api/videos', {
     method: 'GET',
     headers: {
       'auth_key': AUTH_KEY
