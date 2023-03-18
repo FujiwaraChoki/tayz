@@ -39,7 +39,7 @@ export default function Video() {
     };
 
     const fetchVideo = async () => {
-        const video = await fetch("http://localhost:3000/api/video?id=" + id, {
+        const video = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/video?id=" + id, {
             method: 'GET',
             headers: {
                 'auth_key': "SECRET_AUTH_KEY"
