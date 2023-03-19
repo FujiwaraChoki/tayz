@@ -57,7 +57,8 @@ export async function getStaticProps() {
     headers: {
       'auth_key': AUTH_KEY
     }
-  }).then(res => res.json()).then(data => data.data);
+  }).then(res => res.json())
+    .then(data => data.data);
 
   return {
     props: {
