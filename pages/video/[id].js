@@ -15,12 +15,12 @@ export default function Video() {
         const response = await fetch(`https://fornowbackend.vercel.app/api/video?id=${id}`, {
             method: 'GET',
             headers: {
-                'auth_key': process.env.AUTH_KEY,
+                'auth_key': "SECRET_AUTH_KEY",
                 "Content-Type": "application/json"
             }
         });
         const data = await response.json();
-        console.log(data.data.comments);
+        console.log(data);
         setVideo(data.data);
         setComments(data.data.comments);
     }
@@ -60,7 +60,7 @@ export default function Video() {
     }
 
     const renderComment = (comment) => {
-        const { authorDisplayName, authorProfileImageUrl, textDisplay, authorChannelUrl } = comment.snippet.topLevelComment.snippet;
+        const { authorDisplayName, authorProfileImageUrl, textDisplay, authorChannelUrl } = comment;
 
         if (comment) {
             return (
