@@ -30,7 +30,8 @@ export default function NavigationBar() {
                         <Link href="/">
                             <a className="nav-link">
                                 <FontAwesomeIcon icon={faHome} width={20} height={20} />
-                                &nbsp;Home<span className="sr-only">(current)</span>
+                                &nbsp;
+                                Home<span className="sr-only">(current)</span>
                             </a>
                         </Link>
                     </li>
@@ -38,7 +39,8 @@ export default function NavigationBar() {
                         <Link href="/about">
                             <a className="nav-link">
                                 <FontAwesomeIcon icon={faContactCard} width={20} height={20} />
-                                &nbsp;About
+                                &nbsp;
+                                About
                             </a>
                         </Link>
                     </li>
@@ -46,7 +48,8 @@ export default function NavigationBar() {
                         <Link href="/contact">
                             <a className="nav-link">
                                 <FontAwesomeIcon icon={faContactCard} width={20} height={20} />
-                                &nbsp;Contact
+                                &nbsp;
+                                Contact
                             </a>
                         </Link>
                     </li>
@@ -58,7 +61,8 @@ export default function NavigationBar() {
                             rel="noopener noreferrer"
                         >
                             <FontAwesomeIcon icon={faGithub} width={20} height={20} />
-                            &nbsp;Github
+                            &nbsp;
+                            Github
                         </a>
                     </li>
                 </ul>
