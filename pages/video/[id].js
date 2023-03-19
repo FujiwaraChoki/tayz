@@ -35,7 +35,7 @@ export default function Video() {
         const { video_id, title } = video;
 
         const thumbnail_url = `https://img.youtube.com/vi/${video_id}/0.jpg`;
-        const youtube_url = `https://tayz.vercel.app/video?id=${video_id}`;
+        const youtube_url = `https://tayz.vercel.app/video/${video_id}`;
 
 
         return (
