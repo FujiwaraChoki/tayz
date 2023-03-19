@@ -16,6 +16,7 @@ export default function Video() {
             method: 'GET',
             headers: {
                 'auth_key': process.env.AUTH_KEY,
+                "Content-Type": "application/json"
             }
         });
         const data = await response.json();
@@ -134,34 +135,30 @@ export default function Video() {
                             <h5 className="card-title">{video.title}</h5>
                         </div>
                     </div>
-                    {
-                        isLoading || !id && (
-                            <>
-                                <div id="description">
-                                    <h3 className="mb-4">Description</h3>
-                                    <p>{cleanDescription(video.description, false)}</p>
+                    <>
+                        <div id="description">
+                            <h3 className="mb-4">Description</h3>
+                            <p>{cleanDescription(video.description, false)}</p>
+                        </div>
+                        <hr />
+                        <div id="comments">
+                            <h3 className="mb-4">Comments</h3>
+                            {
+                                isLoading || !id ? (
+                                    <div className={styles.loadingContainer}>
+                                        <div className="spinner-border text-primary" role="status"></div>
+                                    </div>
+                                ) : (
+                                    comments.map(comment => renderComment(comment))
+                                )
+                            }
+                            {comments.length === 0 && !isLoading && (
+                                <div className="alert alert-info" role="alert">
+                                    No comments yet!
                                 </div>
-                                <hr />
-                                <div id="comments">
-                                    <h3 className="mb-4">Comments</h3>
-                                    {
-                                        isLoading || !id ? (
-                                            <div className={styles.loadingContainer}>
-                                                <div className="spinner-border text-primary" role="status"></div>
-                                            </div>
-                                        ) : (
-                                            comments.map(comment => renderComment(comment))
-                                        )
-                                    }
-                                    {comments.length === 0 && !isLoading && (
-                                        <div className="alert alert-info" role="alert">
-                                            No comments yet!
-                                        </div>
-                                    )}
-                                </div>
-                            </>
-                        )
-                    }
+                            )}
+                        </div>
+                    </>
                 </div>
                 <div className="col-lg-4">
                     <h3 className="mb-4">Related Videos</h3>
