@@ -35,15 +35,15 @@ export default function Video() {
         const { video_id, title } = video;
 
         const thumbnail_url = `https://img.youtube.com/vi/${video_id}/0.jpg`;
-        const youtube_url = `https://tayz.vercel.app/video.html?id=${video_id}`;
+        const youtube_url = `https://tayz.vercel.app/video?id=${video_id}`;
 
 
         return (
             <div className="col-md-8" key={youtube_url}>
                 <div className="card mb-8">
-                    <a href={youtube_url} target="_blank">
+                    <Link href={youtube_url} target="_blank">
                         <Image className="card-img-top" src={thumbnail_url} alt="Video thumbnail" width={400} height={300} />
-                    </a>
+                    </Link>
                     <div className="card-body">
                         <strong>{title}</strong>
                     </div>
