@@ -1,8 +1,8 @@
 export default function About() {
     return (
         <div className="container" style={{
-            marginBottom: '210px',
-            paddingTop: '20px'
+            marginBottom: "210px",
+            paddingTop: "20px"
         }}>
             <h1>About Us</h1>
             <p className="lead">Welcome to Tayz, the website where you can watch your favorite edits from YouTube!</p>
@@ -11,7 +11,7 @@ export default function About() {
             <h2>How to Use Our Website</h2>
             <p>Using our website is easy! Simply navigate to the homepage and use the search bar to look for your favorite edits. You can also browse our collection by category or channel. Once you find an edit you like, simply click on it to watch it in full screen mode.</p>
             <h2>Contact Us</h2>
-            <p>If you have any questions or feedback, we would love to hear from you! Please feel free to contact us at <a href="mailto:sami@samihindi.com">sami@samihindi.com</a> and we'll get back to you as soon as possible.</p>
+            <p>If you have any questions or feedback, we would love to hear from you! Please feel free to contact us at <a href="mailto:sami@samihindi.com">sami@samihindi.com</a> and we&apos;ll get back to you as soon as possible.</p>
         </div>
     )
 }
