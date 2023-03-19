@@ -10,8 +10,8 @@ export default function NavigationBar() {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <Link href="/">
-                <a className="navbar-brand">Tayz&nbsp;</a>
+            <Link href="/" className="navbar-brand">
+                Tayz&nbsp;
             </Link>
             <button
                 className="navbar-toggler"
@@ -27,34 +27,28 @@ export default function NavigationBar() {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className={`nav-item ${router.pathname === '/' ? 'active' : ''}`}>
-                        <Link href="/">
-                            <a className="nav-link">
-                                <FontAwesomeIcon icon={faHome} width={20} height={20} />
-                                &nbsp;
-                                Home<span className="sr-only">(current)</span>
-                            </a>
+                        <Link href="/" className="nav-link">
+                            <FontAwesomeIcon icon={faHome} width={20} height={20} />
+                            &nbsp;
+                            Home<span className="sr-only">(current)</span>
                         </Link>
                     </li>
                     <li className={`nav-item ${router.pathname === '/about' ? 'active' : ''}`}>
-                        <Link href="/about">
-                            <a className="nav-link">
-                                <FontAwesomeIcon icon={faContactCard} width={20} height={20} />
-                                &nbsp;
-                                About
-                            </a>
+                        <Link href="/about" className="nav-link">
+                            <FontAwesomeIcon icon={faContactCard} width={20} height={20} />
+                            &nbsp;
+                            About
                         </Link>
                     </li>
                     <li className={`nav-item ${router.pathname === '/contact' ? 'active' : ''}`}>
-                        <Link href="/contact">
-                            <a className="nav-link">
-                                <FontAwesomeIcon icon={faContactCard} width={20} height={20} />
-                                &nbsp;
-                                Contact
-                            </a>
+                        <Link href="/contact" className="nav-link">
+                            <FontAwesomeIcon icon={faContactCard} width={20} height={20} />
+                            &nbsp;
+                            Contact
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <a
+                        <Link
                             className="nav-link"
                             href="https://github.com/FujiwaraChoki/tayz"
                             target="_blank"
@@ -63,10 +57,10 @@ export default function NavigationBar() {
                             <FontAwesomeIcon icon={faGithub} width={20} height={20} />
                             &nbsp;
                             Github
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>
-        </nav>
+        </nav >
     );
 }

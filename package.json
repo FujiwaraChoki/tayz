@@ -1,5 +1,5 @@
 {
-  "name": "tayz-next-js",
+  "name": "tayz",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,10 +14,8 @@
     "@fortawesome/free-brands-svg-icons": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "next": "13.0.0",
+    "next": "^13.2.4",
     "rc-footer": "^0.6.8",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
     "react-loader-spinner": "^5.3.4",
     "react-uuid": "^2.0.0"
   },
