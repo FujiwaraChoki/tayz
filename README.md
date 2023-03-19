@@ -1,34 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+About Us
+========
 
-## Getting Started
+Welcome to Tayz, the website where you can watch your favorite edits from YouTube!
 
-First, run the development server:
+Our website was created to provide a seamless and convenient way for users to enjoy their favorite edits from YouTube without having to navigate through endless search results. We strive to curate the best edits from various YouTube channels and present them in a user-friendly format for your enjoyment.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Our team is composed of passionate individuals who love editing and have a keen eye for quality content. We constantly update our collection with the latest and greatest edits to ensure that our users always have something new to watch.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to Use Our Website
+----------------------
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Using our website is easy! Simply navigate to the homepage and use the search bar to look for your favorite edits. You can also browse our collection by category or channel. Once you find an edit you like, simply click on it to watch it in full screen mode.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Contact Us
+----------
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+If you have any questions or feedback, we would love to hear from you! Please feel free to contact us at [sami@samihindi.com](mailto:sami@samihindi.com) and we'll get back to you as soon as possible.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Link
+-----
+[tayz.vercel.app](https://tayz.vercel.app)
