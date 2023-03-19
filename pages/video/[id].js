@@ -71,7 +71,7 @@ export default function Video() {
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <div className="media-body">
                         <h5 className="mt-0">{authorDisplayName}</h5>
-                        {textDisplay}
+                        {cleanComment(textDisplay)}
                     </div>
                 </div>
             );
@@ -165,7 +165,7 @@ export default function Video() {
                                         <div className="spinner-border text-primary" role="status"></div>
                                     </div>
                                 ) : (
-                                    comments.map(comment => renderComment(cleanComment(comment)))
+                                    comments.map(comment => renderComment(comment))
                                 )
                             }
                             {comments.length === 0 && !isLoading && (
