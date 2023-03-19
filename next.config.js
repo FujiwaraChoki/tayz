@@ -6,7 +6,8 @@ const nextConfig = {
     domains: [
       'img.youtube.com',
       'yt3.ggpht.com',
-      'www.pngmart.com'
+      'www.pngmart.com',
+      'i.imgur.com',
     ],
   },
 }

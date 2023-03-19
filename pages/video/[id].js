@@ -15,15 +15,17 @@ export default function Video() {
         const response = await fetch(`https://fornowbackend.vercel.app/api/video?id=${id}`, {
             method: 'GET',
             headers: {
-                'auth_key': process.env.AUTH_KEY
+                'auth_key': process.env.AUTH_KEY,
             }
         });
         const data = await response.json();
+        console.log(data.data.comments);
         setVideo(data.data);
+        setComments(data.data.comments);
     }
 
     const getVideos = async () => {
-        const response = await fetch('https://tayz.vercel.app/api/videos.json');
+        const response = await fetch('https://fornowbackend.vercel.app/videos.json');
         const data = await response.json();
         return data;
     }
@@ -36,7 +38,7 @@ export default function Video() {
 
 
         return (
-            <div className="col-md-8">
+            <div className="col-md-8" key={youtube_url}>
                 <div className="card mb-8">
                     <a href={youtube_url} target="_blank">
                         <Image className="card-img-top" src={thumbnail_url} alt="Video thumbnail" width={400} height={300} />
@@ -102,8 +104,11 @@ export default function Video() {
     }
 
     useEffect(() => {
-        getVideo();
-        renderSideVideos();
+        if (id) {
+            getVideo();
+            renderSideVideos();
+            setIsLoading(false);
+        }
     }, [])
 
     return (
@@ -129,28 +134,34 @@ export default function Video() {
                             <h5 className="card-title">{video.title}</h5>
                         </div>
                     </div>
-                    <div id="description">
-                        <h3 className="mb-4">Description</h3>
-                        <p>{cleanDescription(video.description, false)}</p>
-                    </div>
-                    <hr />
-                    <div id="comments">
-                        <h3 className="mb-4">Comments</h3>
-                        {
-                            isLoading || !id ? (
-                                <div className={styles.loadingContainer}>
-                                    <div className="spinner-border text-primary" role="status"></div>
+                    {
+                        isLoading || !id && (
+                            <>
+                                <div id="description">
+                                    <h3 className="mb-4">Description</h3>
+                                    <p>{cleanDescription(video.description, false)}</p>
                                 </div>
-                            ) : (
-                                comments.map(comment => renderComment(comment))
-                            )
-                        }
-                        {comments.length === 0 && !isLoading && (
-                            <div className="alert alert-info" role="alert">
-                                No comments yet!
-                            </div>
-                        )}
-                    </div>
+                                <hr />
+                                <div id="comments">
+                                    <h3 className="mb-4">Comments</h3>
+                                    {
+                                        isLoading || !id ? (
+                                            <div className={styles.loadingContainer}>
+                                                <div className="spinner-border text-primary" role="status"></div>
+                                            </div>
+                                        ) : (
+                                            comments.map(comment => renderComment(comment))
+                                        )
+                                    }
+                                    {comments.length === 0 && !isLoading && (
+                                        <div className="alert alert-info" role="alert">
+                                            No comments yet!
+                                        </div>
+                                    )}
+                                </div>
+                            </>
+                        )
+                    }
                 </div>
                 <div className="col-lg-4">
                     <h3 className="mb-4">Related Videos</h3>

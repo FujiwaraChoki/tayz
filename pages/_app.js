@@ -1,6 +1,5 @@
 import '../styles/globals.css'
 import 'rc-footer/assets/index.css'
-import 'reactjs-navbar/dist/index.css'
 import Head from 'next/head.js'
 import Foot from '../components/Footer.js'
 import Nav from '../components/Navbar.js'
@@ -16,7 +15,6 @@ const setCurrentTitle = (routeName) => {
       return 'Contact';
     case 'Login':
       return 'Login';
-
     default:
       return 'Tayz';
   }
