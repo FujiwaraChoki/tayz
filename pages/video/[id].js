@@ -104,6 +104,22 @@ export default function Video() {
         return <div dangerouslySetInnerHTML={{ __html: cleanDescription }} />;
     }
 
+    const cleanComment = (comment) => {
+        if (!comment) return ('');
+        // Turn to string
+        comment = comment.toString();
+        // Turn new lines into <br> tags
+        let cleanedComment = comment.replace(/(\r\n|\n|\r)/gm, "<br>");
+        // Turn URLS into links
+        cleanedComment = cleanedComment.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+        // Turn @mentions into links
+        cleanedComment = cleanedComment.replace(/(^|\s)@(\w+)/g, '$1<a href="https://twitter.com/$2" target="_blank">@$2</a>');
+        // Turn #hashtags into links
+        cleanedComment = cleanedComment.replace(/(^|\s)#(\w+)/g, '$1<a href="https://www.youtube.com/hashtag/$2" target="_blank">#$2</a>');
+
+        return <div dangerouslySetInnerHTML={{ __html: cleanComments }} />;
+    }
+
     useEffect(() => {
         if (id) {
             getVideo();
@@ -149,7 +165,7 @@ export default function Video() {
                                         <div className="spinner-border text-primary" role="status"></div>
                                     </div>
                                 ) : (
-                                    comments.map(comment => renderComment(comment))
+                                    comments.map(comment => renderComment(cleanComment(comment)))
                                 )
                             }
                             {comments.length === 0 && !isLoading && (
