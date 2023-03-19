@@ -77,13 +77,7 @@ export default function Video() {
                 </div>
             );
         } else {
-            return (
-                <div className="media mb-4">
-                    <div className="media-body">
-                        <h5 className="mt-0">Loading...</h5>
-                    </div>
-                </div>
-            );
+            return null;
         }
     };
 
@@ -111,14 +105,12 @@ export default function Video() {
         comment = comment.toString();
         // Turn new lines into <br> tags
         let cleanedComment = comment.replace(/(\r\n|\n|\r)/gm, "<br>");
-        // Turn URLS into links
-        cleanedComment = cleanedComment.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
         // Turn @mentions into links
         cleanedComment = cleanedComment.replace(/(^|\s)@(\w+)/g, '$1<a href="https://twitter.com/$2" target="_blank">@$2</a>');
         // Turn #hashtags into links
         cleanedComment = cleanedComment.replace(/(^|\s)#(\w+)/g, '$1<a href="https://www.youtube.com/hashtag/$2" target="_blank">#$2</a>');
 
-        return <div dangerouslySetInnerHTML={{ __html: cleanedComment }} />;
+        return <p dangerouslySetInnerHTML={{ __html: cleanedComment }} />;
     }
 
     useEffect(() => {
