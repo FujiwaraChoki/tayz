@@ -132,7 +132,7 @@ export default function Video() {
                         )
                         }
                         <div className="card-body">
-                            <h5 className="card-title">{video.title}</h5>
+                            <h1 className="card-title">{video.title}</h1>
                         </div>
                     </div>
                     <>
