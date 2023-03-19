@@ -12,7 +12,12 @@ export default function Video() {
     const [isLoading, setIsLoading] = useState(true);
 
     const getVideo = async () => {
-        const response = await fetch(`https://fornowbackend.vercel.app/api/video?id=${id}`);
+        const response = await fetch(`https://fornowbackend.vercel.app/api/video?id=${id}`, {
+            method: 'GET',
+            headers: {
+                'auth_key': process.env.AUTH_KEY
+            }
+        });
         const data = await response.json();
         setVideo(data.data);
     }
