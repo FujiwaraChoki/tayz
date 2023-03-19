@@ -7,60 +7,14 @@ export default function Video() {
     const router = useRouter();
     const { id } = router.query;
     const [video, setVideo] = useState({});
-    const [comments, setComments] = useState([
-        {
-            snippet: {
-                topLevelComment: {
-                    snippet: {
-                        authorDisplayName: 'Loading...',
-                        authorProfileImageUrl: 'https://www.pngmart.com/files/10/User-Account-Person-PNG-File.png',
-                        textDisplay: '',
-                        authorChannelUrl: ''
-                    }
-                }
-            }
-        }
-    ]);
+    const [comments, setComments] = useState([]);
     const [sideVideos, setSideVideos] = useState([]);
-
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        if (id) {
-            getComments();
-            fetchVideo();
-        }
-    }, [id]);
-
-    const getComments = async () => {
-        const comments = await fetch(`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${id}&key=AIzaSyBOkUso3EoRUoOtBIoWonSNHDUtK9fetj4`).then(res => res.json());
-
-        setComments(comments.items);
-    };
-
-    const fetchVideo = async () => {
-        const video = await fetch("https://fornowbackend.vercel.app/api/video?id=" + id, {
-            method: 'GET',
-            headers: {
-                'auth_key': "SECRET_AUTH_KEY"
-            }
-        }).then(res => res.json());
-
-        setVideo(video.data);
-        setIsLoading(false);
-    };
-
-    const getDescription = async () => {
-        const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=AIzaSyBOkUso3EoRUoOtBIoWonSNHDUtK9fetj4`;
-        const response = await fetch(url);
+    const getVideo = async () => {
+        const response = await fetch(`https://fornowbackend.vercel.app/api/video?id=${id}`);
         const data = await response.json();
-        try {
-            const description = data.items[0].snippet.description;
-            setVideo({ ...video, description: description });
-        } catch (error) {
-            const description = 'No description available.';
-            setVideo({ ...video, description: description });
-        }
+        setVideo(data.data);
     }
 
     const getVideos = async () => {
@@ -96,11 +50,6 @@ export default function Video() {
         const sideVideos = videos.filter(video => video.video_id !== id);
         setSideVideos(sideVideos);
     }
-
-    useEffect(() => {
-        getDescription();
-        renderSideVideos();
-    }, [])
 
     const renderComment = (comment) => {
         const { authorDisplayName, authorProfileImageUrl, textDisplay, authorChannelUrl } = comment.snippet.topLevelComment.snippet;
@@ -147,6 +96,10 @@ export default function Video() {
         return <div dangerouslySetInnerHTML={{ __html: cleanDescription }} />;
     }
 
+    useEffect(() => {
+        getVideo();
+        renderSideVideos();
+    }, [])
 
     return (
         <div className={styles.videoContainer}>
@@ -179,7 +132,7 @@ export default function Video() {
                     <div id="comments">
                         <h3 className="mb-4">Comments</h3>
                         {
-                            isLoading ? (
+                            isLoading || !id ? (
                                 <div className={styles.loadingContainer}>
                                     <div className="spinner-border text-primary" role="status"></div>
                                 </div>
