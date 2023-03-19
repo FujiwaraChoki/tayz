@@ -117,7 +117,7 @@ export default function Video() {
         // Turn #hashtags into links
         cleanedComment = cleanedComment.replace(/(^|\s)#(\w+)/g, '$1<a href="https://www.youtube.com/hashtag/$2" target="_blank">#$2</a>');
 
-        return <div dangerouslySetInnerHTML={{ __html: cleanComments }} />;
+        return <div dangerouslySetInnerHTML={{ __html: cleanedComment }} />;
     }
 
     useEffect(() => {
